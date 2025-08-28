@@ -1,0 +1,37 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import requests
+
+# Task 1: Create a NumPy array of numbers from 1 to 10 and calculate the mean
+array = np.array(range(1, 11))
+mean_value = np.mean(array)
+print("NumPy array:", array)
+print("Mean of array:", mean_value)
+
+# Task 2: Load a small dataset into a pandas DataFrame and display summary statistics
+# Example dataset
+data = {
+    'A': [10, 20, 30, 40, 50],
+    'B': [5, 15, 25, 35, 45]
+}
+df = pd.DataFrame(data)
+print("\nDataFrame:\n", df)
+print("\nSummary statistics:\n", df.describe())
+
+# Task 3: Fetch data from a public API and print a key piece of information
+# Using the JSONPlaceholder API for demo purposes
+response = requests.get('https://jsonplaceholder.typicode.com/posts/1')
+if response.status_code == 200:
+    post = response.json()
+    print("\nTitle of the post:", post['title'])
+else:
+    print("Failed to fetch data from API.")
+
+# Task 4: Plot a simple line graph
+numbers = [1, 3, 2, 4, 3, 5]
+plt.plot(numbers)
+plt.title("Simple Line Graph")
+plt.xlabel("Index")
+plt.ylabel("Value")
+plt.show()
